@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Asteroid Blasterz</title>
+</head>
+<body>
+    
+    <div class="modelContainer">
+        <img id="backgroundImage" src="/assets/backgroundImage.png">
+        <img id="projectileModel" src="/assets/projectileModel.png">
+        <img id="ufoModel" src="/assets/ufoSpriteSheet.png" >
+        <img id="alienModel" src="/assets/alienModel.png">
+        <img id="asteroidModel" src="/assets/asteroidModel.png">
+        <img id="playerModel" src="/assets/playerModel.png">
+        <img id="playerModelLeft" src="/assets/playerModelLeft.png">
+    </div>
+    
+    <canvas id="canvas"></canvas>
+
+    <div>
+        <ul class="playerLives">
+            <li id="text">Lives: </li>
+            <li id="life1"><img src="/assets/lifeModel.png"></li>
+            <li id="life2"><img src="/assets/lifeModel.png"></li>
+            <li id="life3"><img src="/assets/lifeModel.png"></li>
+        </ul>
+    </div>
+
+    <div id="menu">
+        <h2>Asteroid Blasters!</h2>
+        <h4>Click 'START'</h4>
+        <button id="startButton">START</button>
+    </div>
+    
+    
+
+    <script type="module" src="/js/main.js"></script>
+</body>
+</html>
