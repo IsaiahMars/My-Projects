@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #252525;
+}
+
+.modelContainer {
+  display: none;
+}
+
+#canvas {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 3em auto;
+  margin-bottom: 0;
+  border: 9px solid purple;
+  background-image: url("/assets/backgroundImage.png");
+}
+
+.playerLives {
+  display: inline-block;
+  position: absolute;
+  top: 15em;
+  left: 32%;
+  font-size: 40px;
+  font-family: Impact;
+  color: white;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.playerLives li {
+  display: none;
+}
+
+.playerLives li img {
+  height: 40px;
+  width: 30px;
+}
+
+#menu {
+  display: inline-block;
+  position: fixed;
+  width: 18em;
+  margin: -25em calc(50% - 20em/2);
+  border: 3px solid black;
+  border-radius: 2em;
+  background: gray;
+  padding: 2em;
+  font-family: Verdana;
+}
+
+#menu h2 {
+  text-align: center;
+}
+
+#menu h4 {
+  text-align: center;
+}
+
+#menu #startButton {
+  margin: 1em calc(50% - 10em/2);
+  width: 10em;
+  padding: .3em;
+  border-radius: 2em;
+  font-family: Impact;
+}
+/*# sourceMappingURL=style.css.map */

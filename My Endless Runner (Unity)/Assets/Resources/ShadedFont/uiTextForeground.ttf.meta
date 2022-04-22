@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 29fbfcd5b8ce76046bdcfdebf3143f8b
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Monster Shadow
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 9aed7a39a499d8f46afe7ef1a3f84ed2, type: 3}
+  - {fileID: 12800000, guid: e01d5f9218f004f478a2bd3e8d1ecca4, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
