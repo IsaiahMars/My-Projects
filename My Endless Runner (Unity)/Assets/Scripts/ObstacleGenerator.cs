@@ -6,9 +6,8 @@ public class ObstacleGenerator : MonoBehaviour
 {
     public Animator animator;
 
-    public GameObject obstacles;
 
-    
+    public GameObject childObstacles;
     public GameObject[] availableObstacles;
     private List<GameObject> instantiatedObstacles;
     private float[] xSpawnCoordinates = {-1.5f, 0f, 1.5f};
@@ -16,6 +15,10 @@ public class ObstacleGenerator : MonoBehaviour
     public GameObject coin;
     public GameObject childCoins;
     public static List<GameObject> instantiatedCoins;
+
+    public GameObject[] availablePowerups;
+    public GameObject childPowerups;
+    public static List<GameObject> instantiatedPowerups;
 
     [SerializeField] int instantiatedLast = 30;
     [SerializeField] float generatedLast = 30;
@@ -26,10 +29,11 @@ public class ObstacleGenerator : MonoBehaviour
     {
         instantiatedObstacles = new List<GameObject>();
         instantiatedCoins = new List<GameObject>();
+        instantiatedPowerups = new List<GameObject>();
 
         for(int i = 2; i<18; i++){
             GameObject temp = Instantiate(availableObstacles[randomNumber()], new Vector3(randomFloat(), 0, i * 13.75f), Quaternion.identity);
-            temp.transform.SetParent(obstacles.transform, false);  
+            temp.transform.SetParent(childObstacles.transform, false);  
             instantiatedObstacles.Add(temp); 
         }
     }
@@ -63,13 +67,23 @@ public class ObstacleGenerator : MonoBehaviour
                     instantiatedCoins.RemoveAt(i);
                 }
             }
+
+            for(int i = 0; i<instantiatedPowerups.Count; i++){
+                instantiatedPowerups[i].transform.Translate(0, 0, (Time.deltaTime * moveSpeed));
+
+                if(instantiatedPowerups[i].transform.position.z <= -27.5f){ 
+                    Destroy(instantiatedPowerups[i]); 
+                    instantiatedPowerups.RemoveAt(i);
+                }
+            }
             
             
             int oneInSix = UnityEngine.Random.Range(0,6);
+            int oneInForty = UnityEngine.Random.Range(0,40);
             
             if(instantiatedObstacles.Count < 16){           // Instantiates a new block every time one is removed from the array.
                 GameObject temp = Instantiate(availableObstacles[randomNumber()], new Vector3(randomFloat(), 0, instantiatedObstacles[14].transform.position.z + 13.75f), Quaternion.identity);
-                temp.transform.SetParent(obstacles.transform, false);                                                                         
+                temp.transform.SetParent(childObstacles.transform, false);                                                                         
                 instantiatedObstacles.Add(temp);
                 if(oneInSix == 1){  // 1 in 6 chance of coins being spawned every time a new block is spawned
                     GameObject tempCoin1 = Instantiate(coin, new Vector3(randomFloat(), -.6f, temp.transform.position.z), Quaternion.identity);
@@ -80,6 +94,11 @@ public class ObstacleGenerator : MonoBehaviour
                         tempCoin2.transform.SetParent(childCoins.transform, false);
                         instantiatedCoins.Add(tempCoin2);
                     }
+                }
+                else if(oneInForty == 1){
+                    GameObject tempPowerup = Instantiate(availablePowerups[UnityEngine.Random.Range(0,3)], new Vector3(randomFloat(), -.6f, temp.transform.position.z), Quaternion.identity);
+                    tempPowerup.transform.SetParent(childPowerups.transform, false);
+                    instantiatedPowerups.Add(tempPowerup);
                 }
             }
         }
@@ -93,8 +112,6 @@ public class ObstacleGenerator : MonoBehaviour
         generatedLast = temp;
         return xSpawnCoordinates[temp];
     }
-
-
 
     private int randomNumber(){
         int temp = UnityEngine.Random.Range(0,13);

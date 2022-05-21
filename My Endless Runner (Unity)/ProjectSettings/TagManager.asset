@@ -7,6 +7,10 @@ TagManager:
   - Walls
   - Obstacle
   - Coin
+  - bigJump
+  - coinMagnet
+  - timeSlow
+  - Ground
   layers:
   - Default
   - TransparentFX

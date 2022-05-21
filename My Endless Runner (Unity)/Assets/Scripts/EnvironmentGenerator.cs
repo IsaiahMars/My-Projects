@@ -29,8 +29,6 @@ public class EnvironmentGenerator : MonoBehaviour
     {             
         bool gameOver = animator.GetBool("gameOver");
 
-        
-
         if(!gameOver){
             
             if(moveSpeed > -30f){
@@ -62,5 +60,6 @@ public class EnvironmentGenerator : MonoBehaviour
         instantiatedLast = temp;
         return instantiatedLast;
     }
+
 
 }

@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 public class ScoreTracker : MonoBehaviour
 {
     [SerializeField] double currentScore, topScore, distance;  // Variables used to keep track of the score
     public static int coinCount;
-    public Text scoreText, topScoreText, distanceText, coinText;
-    public Text scoreTextFG, topScoreTextFG, distanceTextFG, coinTextFG;  // this is the text that gets updated based on the variables above 
+    public TextMeshProUGUI scoreText, topScoreText, distanceText, coinText;
+    public TextMeshProUGUI gameOverScoreText, gameOverDistanceText;
     public Animator animator;
 
     private double scoreMultiplier = 5;
@@ -30,6 +31,10 @@ public class ScoreTracker : MonoBehaviour
             distanceTracker(); 
             coinTracker();
         }
+        else{
+            gameOverDistanceText.text = distanceText.text;
+            gameOverScoreText.text = scoreText.text;
+        }
     }
 
     void scoreUpdate(){
@@ -37,18 +42,16 @@ public class ScoreTracker : MonoBehaviour
         scoreMultiplier += .001;
                                     
         string roundedScoreText = Math.Round(currentScore).ToString(); // variable used to round score and convert its type to string
-        scoreText.text = roundedScoreText;
-        scoreTextFG.text = roundedScoreText;                             // assigning scoreText to the rounded currentScoure     
+        scoreText.text = roundedScoreText;  // assigning scoreText to the rounded currentScore   
+                            
 
         if(currentScore > topScore){
             PlayerPrefs.SetInt("highscore", (int)currentScore);  // using PlayerPrefs to keep track of highscore
             PlayerPrefs.Save();                                  
             topScoreText.text = roundedScoreText;
-            topScoreTextFG.text = roundedScoreText;
         }
         else{
-            topScoreText.text = topScore.ToString();  
-            topScoreTextFG.text = topScore.ToString();               
+            topScoreText.text = topScore.ToString();                
         }
 
     }
@@ -57,13 +60,11 @@ public class ScoreTracker : MonoBehaviour
         distance += scoreMultiplier * Time.deltaTime;
         string roundedDistanceText = Math.Round(distance, 1).ToString() + "m";
         distanceText.text = roundedDistanceText;
-        distanceTextFG.text = roundedDistanceText;
     }
 
     void coinTracker(){
         PlayerPrefs.SetInt("coinCount", coinCount);
         coinText.text = coinCount.ToString();
-        coinTextFG.text = coinCount.ToString();
     }
 
     

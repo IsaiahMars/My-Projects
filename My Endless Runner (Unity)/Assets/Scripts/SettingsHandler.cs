@@ -16,8 +16,10 @@ public class SettingsHandler : MonoBehaviour
     private bool isActive = false;
     private bool isFullscreen = true;
 
-
-    void Awake(){
+    void Start(){
+        if(!PlayerPrefs.HasKey("soundScale")){
+            PlayerPrefs.SetFloat("soundScale", .5f);
+        } 
         settingsMenu.SetActive(isActive);
         initPlayerSettings();
     }
@@ -80,5 +82,6 @@ public class SettingsHandler : MonoBehaviour
         fullscreenToggle.SetIsOnWithoutNotify(isFullscreen);
         resolutionChanger();
     }
+
 
 }
