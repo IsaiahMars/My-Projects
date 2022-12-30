@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% block title %} Login {% endblock%} <!-- Jinja statement used to render this html page below the navbar defined in base.html -->
+
+{% block content %}
+<div class="login-form">                                        <!-- Simple HTML form used to allow users to enter the -->
+    <h2>Login</h2>                                              <!-- information required to log in to their account.  -->
+    <form method="POST">
+        <div class="form-item">
+            <label for="email"> Email Address: </label>
+            <input type="email" id="email" name="email" placeholder="Enter email here...">
+        </div>
+        <div class="form-item">
+            <label for="password"> Password: </label>
+            <input type="password" id="password" name="password" placeholder="Enter password here...">
+        </div>
+
+        <button name="login" type="submit"> Log In </button>
+    </form>
+</div>
+{% endblock %}

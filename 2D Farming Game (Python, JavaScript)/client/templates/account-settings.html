@@ -1,0 +1,131 @@
+{% extends "base.html" %} {% block title %} Account Settings {% endblock%} <!-- Jinja statement used to render this html page below the navbar defined in base.html -->
+
+{% block content %}
+<div class="account-settings-form">                                        <!-- This page is just a long series of divs, forms, inputs, and -->
+    <h2> Account Info </h2>                                                <!-- buttons used to allow a user to edit their account info.    -->
+    <form method="POST">
+        <div class="model-select">
+            <label for="model"> Character Model: </label>
+            <div class="model-options">
+                {% if user.model == "male" %}
+                    <button type="submit" name="male-farmer" id="maleFarmerBtn" style="box-shadow: 0px 2px 3px;"></button>
+                    <button type="submit" name="female-farmer" id="femaleFarmerBtn"></button>
+                {% elif user.model == "female" %}
+                    <button type="submit" name="male-farmer" id="maleFarmerBtn"></button>
+                    <button type="submit" name="female-farmer" id="femaleFarmerBtn" style="box-shadow: 0px 2px 3px;"></button>
+                {% else %}
+                    <button type="submit" name="male-farmer" id="maleFarmerBtn"></button>
+                    <button type="submit" name="female-farmer" id="femaleFarmerBtn"></button>
+                {% endif %}
+                
+            </div>
+        </div>
+    </form>
+    <form method="POST">
+        <div class="form-item">
+            <label for="username"> Username: </label>
+            <div class="form-item-input">
+                <input type="text" id="username" name="username" placeholder="{{ user.username }}">
+                <button type="submit" name="update-username"> Apply </button>
+            </div>
+        </div>
+    </form>
+    <form method="POST">
+        <div class="form-item">
+            <label for="email"> Email Address: </label>
+            <div class="form-item-input">
+                <input type="email" id="email" name="email" placeholder="{{ user.email }}">
+                <button type="submit" name="update-email"> Apply </button>
+            </div>
+            
+        </div>
+    </form>
+    <form>
+        <div class="form-item">
+            <label for="password"> Password: </label>
+            <div class="form-item-input">
+                <button type="button" id="passwordModal" class="btn btn-primary text-white" data-toggle="modal" data-target="#passwordModalCenter"> Change Password </button>
+            </div>
+        </div>
+    </form>
+    <!-- Modified Bootstrap CSS Modal -->
+    <!-- https://getbootstrap.com/docs/4.0/components/modal/ -->
+    <div class="modal fade" id="passwordModalCenter" tabindex="-1" role="dialog" aria-labelledby="passwordModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="passwordModalTitle"> Change Password </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="password-modal-body">
+                <form method="POST">
+                    <div class="form-item">
+                        <label for="current-password"> Current Password: </label>
+                        <div class="form-item-input">
+                            <input type="password" id="current-password" name="current-password" placeholder="*********">
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <label for="new-password1"> New Password: </label>
+                        <div class="form-item-input">
+                            <input type="password" id="new-password1" name="new-password1">
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <label for="new-password2"> Confirm New Password: </label>
+                        <div class="form-item-input">
+                            <input type="password" id="new-password2" name="new-password2">
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="modal-footer">
+                        <button type="submit" name="update-password" class="btn btn-secondary m-auto w-25"> Apply </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>    
+</div>
+
+<div class="logout-delete">
+    <div class="logout">
+        <a href="/logout"> Logout </a>
+    </div>
+    <!-- Modified Bootstrap CSS Modal -->
+    <!-- https://getbootstrap.com/docs/4.0/components/modal/ -->
+    <div class="delete-account">
+        <button type="button" id="deleteAccountModalBtn" class="btn btn-primary text-white" data-toggle="modal" data-target="#deleteAccountModalCenter"> Delete Account </button>
+
+        <div class="modal fade" id="deleteAccountModalCenter" tabindex="-1" role="dialog" aria-labelledby="deleteAccountModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="deleteAccountModalTitle"> Confirm & Delete Account </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="delete-account-modal-body">
+                    <p> Are you sure you want to delete your account? </p>
+                    <p> Enter your password below and click 'Delete' to confirm.</p>
+                    <form method="POST">
+                        <div class="form-item">
+                            <div class="form-item-input">
+                                <input type="password" id="current-password" name="current-password" placeholder="Enter password here...">
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="modal-footer">
+                            <button type="submit" name="delete-account" class="btn btn-secondary m-auto w-25"> Delete </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

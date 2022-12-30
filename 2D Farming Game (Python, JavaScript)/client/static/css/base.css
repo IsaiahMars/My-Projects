@@ -1,0 +1,772 @@
+
+
+/* ----------------------  */
+/*     CSS FOR NAVBAR      */
+
+.navbar-container{
+    width: 100vw;
+    height: 100px;
+    background: rgb(84, 145, 84);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navbar-container .navbar-links{
+    width: 350px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navbar-container .navbar-links li {
+    list-style: none;
+    margin: 2.3em 0;
+}
+
+.navbar-container .navbar-links li a {
+    padding: 1em;
+    text-decoration: none;
+    font-family: Verdana;
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+    text-shadow: black 2px 1px 2px;
+    background: rgb(71, 124, 71);
+    border: 1px solid black;
+    border-radius: 1em;
+    box-shadow: black 2px 3px 3px;
+}
+
+#instructions{
+    font-weight: 500;
+}
+
+.account-settings{
+    margin: 2.3em 1em;
+}
+
+.account-settings a{
+    padding: 1em;
+    text-decoration: none;
+    color: white;
+    font-family: Verdana;
+    font-weight: 500;
+    font-size: 20px;
+    text-shadow: black 2px 1px 2px;
+    background: rgb(71, 124, 71);
+    border: 1px solid black;
+    border-radius: 1em;
+    box-shadow: black 2px 3px 3px;
+}
+
+.navbar-container .auth-links{
+    width: 300px;
+    margin-right: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navbar-container .auth-links li {
+    list-style: none;
+    margin: 2.3em .5em;
+}
+
+.navbar-container .auth-links li a {
+    padding: 1em;
+    text-decoration: none;
+    font-family: Verdana;
+    font-weight: 500;
+    font-size: 20px;
+    color: white;
+    text-shadow: black 2px 1px 2px;
+    background: rgb(71, 124, 71);
+    border: 1px solid black;
+    border-radius: 1em;
+    box-shadow: black 2px 3px 3px;
+}
+
+/*     CSS FOR NAVBAR     */
+/* ---------------------- */
+/*   CSS FOR LOGIN PAGE   */
+
+.login-form {
+    width: 500px;
+    margin: 1em auto;
+}
+
+.login-form h2{
+    text-align: center;
+    font-family: Verdana;
+    font-size: 24px;
+    margin-bottom: .5em;
+}
+
+.login-form form{
+    border: 1px solid black;
+    border-radius: 1em;
+    box-shadow: black 0 2px 5px;
+}
+
+.login-form form .form-item{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 1em auto;
+}
+
+.login-form form .form-item label {
+    font-family: Verdana;
+    font-size: 14px;
+    padding-bottom: .2em;
+}
+
+.login-form form .form-item input {
+    height: 25px;
+}
+
+.login-form form button {
+    width: 100px;
+    margin: 1em 200px;
+    margin-top: 2em;
+    padding: .5em;
+    border: 1px solid black;
+    border-radius: .5em;
+    box-shadow: black 1px 1px 2px;
+    background: rgb(71, 124, 71);
+    color: white;
+    font-style: Verdana;
+    font-size: 18px;
+}
+
+/*   CSS FOR LOGIN PAGE   */
+/* ---------------------- */
+/*   CSS FOR SIGNUP PAGE  */
+
+.sign-up-form{
+    width: 500px;
+    margin: 1em auto;
+}
+
+.sign-up-form h2{
+    text-align: center;
+    font-family: Verdana;
+    font-size: 24px;
+    margin-bottom: .5em;
+}
+
+.sign-up-form form{
+    border: 1px solid black;
+    border-radius: 1em;
+    box-shadow: black 0 2px 5px;
+}
+
+
+.sign-up-form form .form-item{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 1em auto;
+}
+
+.sign-up-form form .form-item label {
+    font-family: Verdana;
+    font-size: 14px;
+    padding-bottom: .2em;
+}
+
+.sign-up-form form .form-item input {
+    height: 25px;
+}
+
+.sign-up-form form button {
+    width: 100px;
+    margin: 1em 200px;
+    padding: .5em;
+    border: 1px solid black;
+    border-radius: .5em;
+    box-shadow: black 1px 1px 2px;
+    background: rgb(71, 124, 71);
+    color: white;
+    font-style: Verdana;
+    font-size: 18px;
+}
+
+/*   CSS FOR SIGNUP PAGE   */
+/* ----------------------  */
+/*   CSS FOR ACCOUNT PAGE  */
+
+.account-settings-form {
+    width: 500px;
+    height: 600px;
+    margin: 1em auto;
+    border: 2px solid black;
+    border-radius: .5em;
+}
+
+.account-settings-form h2 {
+    width: fit-content;
+    margin: 1em auto;
+}
+
+.account-settings-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.account-settings-form .model-select{
+    display: flex;
+    flex-direction: column;
+    margin: .5em auto;
+    width: 400px;
+    font-size: 18px;
+}
+
+.account-settings-form .model-select label{
+    text-align: left;
+}
+
+.account-settings-form .model-select .model-options{
+    display: flex;
+    flex-direction: row;
+    margin: .5em auto;
+}
+
+.account-settings-form .model-select .model-options button {
+    width: 125px;
+    height: 100px;
+    margin: 0 1em;
+    border-radius: .2em;
+    border: 1px solid black;
+    box-shadow: black 0px 5px 8px 2px;
+    
+}
+
+#maleFarmerBtn{
+    background: url('../resources/male-farmer-btn.png') no-repeat, rgb(71, 124, 71);
+    background-position: center;
+    background-size: 90%;
+}
+
+#femaleFarmerBtn{
+    background: url('../resources/female-farmer-btn.png') no-repeat, rgb(71, 124, 71);
+    background-position: center;
+    background-size: 90%;
+}
+
+.account-settings-form .form-item{
+    display: flex;
+    flex-direction: column;
+    margin: .5em auto;
+    font-size: 18px;
+}
+
+.account-settings-form .form-item .form-item-input {
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+}
+
+.account-settings-form .form-item .form-item-input input {
+    width: 330px;
+}
+
+.account-settings-form .form-item .form-item-input button {
+    margin-left: .2em;
+    width: 70px;
+    border: 1px solid black;
+    border-radius: .2em;
+    box-shadow: black 1px 2px 3px;
+    background: rgb(71, 124, 71);
+    color: white;
+    font-style: Verdana;
+    font-size: 18px;
+}
+
+/* CSS FOR USER INFO FORM    */
+/* ------------------------- */
+/* CSS FOR PASSWORD MODAL    */
+.account-settings-form .form-item .form-item-input #passwordModal {
+    width: 170px;
+    border: 1px solid black;
+    border-radius: .2em;
+    box-shadow: black 1px 2px 3px;
+    background: rgb(71, 124, 71);
+    color: white;
+    font-style: Verdana;
+    font-size: 18px;
+}
+
+.password-modal-body .form-item {
+    display: flex;
+    flex-direction: column;
+    margin: .3em 4em;
+    font-size: 15px;
+}
+
+.password-modal-body .modal-footer button{
+    box-shadow: black 1px 2px 3px;
+    border: 1px solid black;
+    background: rgb(71, 124, 71);
+    color: white;
+    font-style: Verdana;
+    font-size: 18px;
+}
+
+.logout-delete {
+    margin: 1em auto;
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.logout-delete .logout {
+    margin: 1.5em 2em;
+    width: 160px;
+}
+
+.logout-delete .logout a{
+    padding: .5em 1em;
+    border: 1px solid black;
+    border-radius: .2em;
+    box-shadow: black 1px 2px 3px;
+    background: rgb(71, 124, 71);
+    color: white;
+    font-style: Verdana;
+    font-size: 18px;
+}
+/* CSS FOR PASSWORD MODAL */
+/* ------------------     */
+/* CSS FOR DELETE ACCOUNT MODAL    */
+.delete-account {
+    margin: 1em 1em;
+    width: 160px;
+}
+
+.delete-account #deleteAccountModalBtn {
+    padding: .45em;
+    border: 1px solid black;
+    border-radius: .2em;
+    box-shadow: black 1px 2px 3px;
+    background: rgb(71, 124, 71);
+    color: white;
+    font-style: Verdana;
+    font-size: 18px;
+}
+
+.delete-account-modal-body p {
+    text-align: center;
+    margin: .5em auto;
+}
+
+.delete-account-modal-body .form-item {
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+    margin: 2em auto;
+    margin-bottom: 1em;
+}
+
+.delete-account-modal-body .form-item #current-password {
+    font-size: 15px;
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.delete-account-modal-body form .modal-footer button {
+    border: 1px solid black;
+    border-radius: .2em;
+    box-shadow: black 1px 2px 3px;
+    background: rgb(71, 124, 71);
+    color: white;
+    font-style: Verdana;
+    font-size: 18px;
+}
+
+/* CSS FOR DELETE ACCOUNT MODAL    */
+/* ----------------------------    */
+/* CSS FOR HOME PAGE               */
+
+.main-canvas{
+    width: 1080px;
+    height: 720px;
+    position: absolute;
+    top: 51%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main-canvas h2{
+    margin: .2em auto;
+    width: fit-content;
+}
+
+#main-canvas{
+    width: 100%;
+    height: 100%;
+    background: url('../resources/main-canvas-bg.png');
+    border: 6px solid orange;
+}
+
+#character{
+    display: none;
+}
+
+#homePathLeftBtn, #homePathRightBtn, #homePathTopBtn{
+    position: absolute;
+    display: none;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1em;
+    font-family: Verdana;
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+    text-shadow: black 2px 1px 2px;
+    background: rgb(110, 190, 85);
+    border: 1px solid rgb(62, 107, 48);
+    border-radius: 1em;
+    box-shadow: rgb(62, 107, 48) 2px 5px 3px;
+    outline: none;
+}
+
+/* CSS FOR HOME PAGE               */
+/* ----------------------------    */
+/* CSS FOR PATH LEFT PAGE          */
+
+.path-left-canvas{
+    width: 1080px;
+    height: 720px;
+    position: absolute;
+    top: 51%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.path-left-canvas h2{
+    margin: .2em auto;
+    width: fit-content;
+}
+
+#left-canvas{
+    width: 100%;
+    height: 100%;
+    background: url('../resources/left-canvas-bg.png');
+    border: 6px solid orange;
+}
+
+#leftPathRightBtn{
+    position: absolute;
+    display: none;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1em;
+    font-family: Verdana;
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+    text-shadow: black 2px 1px 2px;
+    background: rgb(110, 190, 85);
+    border: 1px solid rgb(62, 107, 48);
+    border-radius: 1em;
+    box-shadow: rgb(62, 107, 48) 2px 5px 3px;
+    outline: none;
+}
+
+#saveBtn{
+    position: absolute;
+    top: 13%;
+    left: 3%;
+    background: url('../resources/save-icon.png') no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 100px;
+    height: 90px;
+    border: none;
+    outline: none;
+}
+
+#harvestBtn{
+    position: absolute;
+    top: 12%;
+    right: 2%;
+    background: url('../resources/scythe.png') no-repeat;
+    width: 100px;
+    height: 100px;
+    border: none;
+    outline: none;
+}
+
+#buildBtn{
+    position: absolute;
+    top: 12%;
+    right: 13%;
+    background: url('../resources/hoe.png') no-repeat;
+    width: 100px;
+    height: 100px;
+    border: none;
+    outline: none;
+}
+
+#removeBtn{
+    position: absolute;
+    top: 12%;
+    right: 24%;
+    background: url('../resources/shovel.png') no-repeat;
+    width: 100px;
+    height: 100px;
+    border: none;
+    outline: none;
+}
+
+#moveBtn{
+    position: absolute;
+    top: 13%;
+    right: 35%;
+    background: url('../resources/hand.png') no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 80px;
+    height: 80px;
+    border: none;
+    outline: none;
+}
+
+#inventoryBtn {
+    position: absolute;
+    bottom: -4%;
+    right: 3%;
+    background: url('../resources/inventory.png') no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 80px;
+    height: 80px;
+    border: none;
+    outline: none;
+}
+
+#plot, #highlightedPlot, #redHighlightedPlot, #removeMode, #removeModeTilt, #moveMode, #harvestMode,#grabbedPlot, #redGrabbedPlot, #inventoryBg,
+#carrotSeeds, #cornSeeds, #potatoSeeds, #lettuceSeeds, #turnipSeeds, #turnipSpritesheet, #carrotSpritesheet, #cornSpritesheet, #lettuceSpritesheet, #potatoSpritesheet,
+#carrotItem, #cornItem, #potatoItem, #lettuceItem, #turnipItem, #coin {
+    display: none;
+}
+
+/* CSS FOR PATH LEFT PAGE          */
+/* ----------------------------    */
+/* CSS FOR PATH RIGHT PAGE         */
+
+.path-right-canvas{
+    width: 1080px;
+    height: 720px;
+    position: absolute;
+    top: 51%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#transitionScreen{
+    width: 1068px;
+    height: 708px;
+    position: absolute;
+    top: 56.2%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: black;
+    display: flex;
+    transition: all .3s linear;
+    transition-delay: none;
+}
+
+.path-right-canvas h2{
+    margin: .2em auto;
+    width: fit-content;
+}
+
+#right-canvas{
+    width: 100%;
+    height: 100%;
+    background: url('../resources/right-canvas-bg.png');
+    border: 6px solid orange;
+}
+
+#rightPathLeftBtn{
+    position: absolute;
+    display: none;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1em;
+    font-family: Verdana;
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+    text-shadow: black 2px 1px 2px;
+    background: rgb(110, 190, 85);
+    border: 1px solid rgb(62, 107, 48);
+    border-radius: 1em;
+    box-shadow: rgb(62, 107, 48) 2px 5px 3px;
+    outline: none;
+}
+
+#marketMenu{
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 640px;
+    height: 530px;
+    background: rgb(143, 122, 94);
+    border: 2px solid rgb(93, 75, 52);
+    box-shadow: rgba(0, 0, 0, .6) 0px 3px 3px 3px;
+}
+
+#marketMenu .market-menu-left-total{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 8%;
+    bottom: -2%;
+    transform: translate(-50%, -50%);
+}
+
+#marketMenu .market-menu-left-total p{
+    text-align: center;  
+    color: white;
+    font: verdana;
+    font-size: 24px;
+    text-shadow: black 2px 1px 2px;
+    margin: 0;
+}
+
+#marketMenuLeftTotal{
+  text-align: center;  
+  color: white;
+  font: verdana;
+  font-weight: bold;
+  font-size: 24px;
+  text-shadow: black 2px 1px 2px;
+}
+
+#marketMenu .market-menu-right-total{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: -1%;
+    bottom: -2%;
+    transform: translate(-50%, -50%);
+}
+
+#marketMenu .market-menu-right-total p{
+    text-align: center;  
+    color: white;
+    font: verdana;
+    font-size: 24px;
+    text-shadow: black 2px 1px 2px;
+    margin: 0;
+}
+
+#marketMenuRightTotal{
+  text-align: center;  
+  color: white;
+  font: verdana;
+  font-weight: bold;
+  font-size: 24px;
+  text-shadow: black 2px 1px 2px;
+}
+
+#marketMenu .market-menu-left-side,
+#marketMenu .market-menu-right-side {
+    width: 48%;
+    height: 78%;
+    display: flex;
+    flex-direction: column;
+    margin: 7px;
+    border: 1px solid rgb(93, 75, 52);
+}
+
+#marketMenu .menu-item {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#marketMenu .menu-item img {
+    height: 72px;
+    width: 64px;
+    margin: auto;
+    margin: 5px;
+}
+
+#marketMenu .menu-item .menu-item-input{
+    padding-top: 13px;
+    margin-left: 25px;
+}
+
+#marketMenu .menu-item .menu-item-input button{
+    border: none;
+    background: rgba(1, 1, 1, 0);
+    outline: none;
+    border: none;
+}
+
+#marketMenu .menu-item .menu-item-input button img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+#marketMenu .menu-item .menu-item-input input {
+    margin: 0;
+    width: 52px;
+    height: 52px;
+    text-align: center;
+    font-size: 30px;
+    outline: none;
+    border: 2px solid rgb(93, 75, 52);
+}
+
+#marketMenu .menu-item .menu-item-input input:disabled{
+    color: black;
+    background: rgb(236, 217, 192);
+}
+
+#marketTurnip, #marketLettuce, #marketCarrot, #marketCorn, #marketPotato {
+    visibility: hidden;
+}
+
+#marketMenu #buySeedBtn, 
+#marketMenu #sellCropBtn{
+    width: 100px;
+    margin: .5em auto;
+    padding: .7em 1.2em;
+    font-family: Verdana;
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+    text-shadow: black 2px 1px 2px;
+    background: rgb(114, 91, 70);
+    border: 1px solid black;
+    outline: none;
+    border-radius: 1em;
+    box-shadow: rgb(50, 40, 30) 2px 5px 3px;
+    margin-top: 20px;
+}
+
+#marketMenu .menu-item .menu-item-input input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none;
+}
+
+
+#market, #marketHover {
+    display: none;
+}
+/* CSS FOR PATH RIGHT PAGE         */

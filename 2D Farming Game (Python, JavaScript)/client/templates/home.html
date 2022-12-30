@@ -1,0 +1,30 @@
+{% extends "base.html" %} <!-- Jinja statement used to render this html page below the navbar defined in base.html -->
+{% block content %}
+<head>
+    
+</head>
+<body onload="transition()">
+    <div class="main-canvas">
+        <h2> Center Path </h2>
+        <canvas id="main-canvas"></canvas>
+        {% if user.model == "male" %}
+            <img src="../static/resources/male-farmer.png" alt="Farmer" id="character">         <!-- Jinja template statements used to display   -->
+        {% elif user.model == "female" %}                                                       <!-- the appropriate 'player model' in the game. -->
+            <img src="../static/resources/female-farmer.png" alt="Farmer" id="character">
+        {% else %}
+            <img src="../static/resources/male-farmer.png" alt="Farmer" id="character">
+        {% endif %}
+        <form method="POST">
+            <button type="submit" name="homePathLeft" id="homePathLeftBtn"> Move Left </button>
+            <button type="submit" name="homePathRight" id="homePathRightBtn"> Move Right </button>
+            <button type="button" name="homePathTop" id="homePathTopBtn"> Coming Soon! </button>
+        </form>
+        <form lastPath="{{ lastPath }}" id="lastPath"></form>  <!-- This is a hidden form used to place the player at an appropriate place on screen depending their last entered path. -->
+    </div>
+    <div id="transitionScreen"> <!-- This is the div that gets manipulated by "transition()" to emulate a transition screen between stages. -->
+    </div>
+
+    <script src="../static/js/home.js" type="module"></script>  <!-- Including the script responsible for this stage's game logic,  -->
+    <script src="../static/js/transition.js"></script>          <!-- as well as the script responsible for the 'transition' effect. -->
+</body> 
+{% endblock %}

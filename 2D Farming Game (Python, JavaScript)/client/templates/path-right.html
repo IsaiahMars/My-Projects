@@ -1,0 +1,146 @@
+{% extends "base.html" %} <!-- Jinja statement used to render this html page below the navbar defined in base.html -->
+{% block content %}
+<head>
+    <!-- Adding SocketIO and JQuery to be used in pathRight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body onload="transition()">
+    <div class="path-right-canvas">
+        <h2 align="center"> Right Path </h2>
+        <canvas id="right-canvas"></canvas>
+        {% if user.model == "male" %}                                                         <!-- Jinja template statements used to display   -->
+            <img src="../static/resources/male-farmer.png" alt="Farmer" id="character">       <!-- the appropriate 'player model' in the game. -->
+        {% elif user.model == "female" %}
+            <img src="../static/resources/female-farmer.png" alt="Farmer" id="character">
+        {% else %}
+            <img src="../static/resources/male-farmer.png" alt="Farmer" id="character">
+        {% endif %}
+        <button id="inventoryBtn"></button>
+        <button id="saveBtn"></button>
+        
+        <div id="marketMenu">                                                                                                                       
+            <div class="market-menu-left-side">
+                <div class="menu-item" id="marketTurnip">
+                    <img src="../static/resources/turnip.png" alt="Turnip">
+                    <div class="menu-item-input">
+                        <button><img src="../static/resources/left.png" alt="Decrement" onclick="cropDecrement('turnipItemCount')"></button>
+                        <input type="number" name="turnipItemCount" value="0" min="0" max="99" id="turnipItemCount" cost="15" disabled>
+                        <button><img src="../static/resources/right.png" alt="Increment" onclick="cropIncrement('turnipItemCount')"></button>
+                    </div>
+                </div>
+                <div class="menu-item" id="marketLettuce">
+                    <img src="../static/resources/lettuce.png" alt="Lettuce">
+                    <div class="menu-item-input">
+                        <button><img src="../static/resources/left.png" alt="Decrement" onclick="cropDecrement('lettuceItemCount')"></button>
+                        <input type="number" name="lettuceItemCount" value="0" min="0" max="99" id="lettuceItemCount" cost="50" disabled>
+                        <button><img src="../static/resources/right.png" alt="Increment" onclick="cropIncrement('lettuceItemCount')"></button>
+                    </div>
+                </div>
+                <div class="menu-item" id="marketCarrot">
+                    <img src="../static/resources/carrot.png" alt="Carrot">
+                    <div class="menu-item-input">
+                        <button><img src="../static/resources/left.png" alt="Decrement" onclick="cropDecrement('carrotItemCount')"></button>
+                        <input type="number" name="carrotItemCount" value="0" min="0" max="99" id="carrotItemCount" cost="85" disabled>
+                        <button><img src="../static/resources/right.png" alt="Increment" onclick="cropIncrement('carrotItemCount')"></button>
+                    </div>
+                </div>
+                <div class="menu-item" id="marketCorn">
+                    <img src="../static/resources/corn.png" alt="Corn">
+                    <div class="menu-item-input">
+                        <button><img src="../static/resources/left.png" alt="Decrement" onclick="cropDecrement('cornItemCount')"></button>
+                        <input type="number" name="cornItemCount" value="0" min="0" max="99" id="cornItemCount" cost="120" disabled>
+                        <button><img src="../static/resources/right.png" alt="Increment" onclick="cropIncrement('cornItemCount')"></button>
+                    </div>
+                </div>
+                <div class="menu-item" id="marketPotato">
+                    <img src="../static/resources/potato.png" alt="Potato">
+                    <div class="menu-item-input">
+                        <button><img src="../static/resources/left.png" alt="Decrement" onclick="cropDecrement('potatoItemCount')"></button>
+                        <input type="number" name="potatoItemCount" value="0" min="0" max="99" id="potatoItemCount" cost="135" disabled>
+                        <button><img src="../static/resources/right.png" alt="Increment" onclick="cropIncrement('potatoItemCount')"></button>
+                    </div>
+                </div>
+                <div class="market-menu-left-total">
+                    <p> Total: </p>
+                    <span id="marketMenuLeftTotal"> 0 </span>
+                </div>
+                <button id="sellCropBtn"> SELL </button>
+            </div>
+            <div class="market-menu-right-side">
+                <div class="menu-item">
+                    <img src="../static/resources/turnip-seeds.png" alt="Turnip Seeds">
+                    <div class="menu-item-input">
+                        <button><img src="../static/resources/left.png" alt="Decrement" onclick="seedDecrement('turnipSeedCount')"></button>
+                        <input type="number" name="turnipSeedCount" value="0" min="0" max="99" id="turnipSeedCount" cost="10" disabled>
+                        <button><img src="../static/resources/right.png" alt="Increment" onclick="seedIncrement('turnipSeedCount')"></button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="../static/resources/lettuce-seeds.png" alt="Lettuce Seeds">
+                    <div class="menu-item-input">
+                        <button><img src="../static/resources/left.png" alt="Decrement" onclick="seedDecrement('lettuceSeedCount')"></button>
+                        <input type="number" name="lettuceSeedCount" value="0" min="0" max="99" id="lettuceSeedCount" cost="35" disabled>
+                        <button><img src="../static/resources/right.png" alt="Increment" onclick="seedIncrement('lettuceSeedCount')"></button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="../static/resources/carrot-seeds.png" alt="Carrot Seeds">
+                    <div class="menu-item-input">
+                        <button><img src="../static/resources/left.png" alt="Decrement" onclick="seedDecrement('carrotSeedCount')"></button>
+                        <input type="number" name="carrotSeedCount" value="0" min="0" max="99" id="carrotSeedCount" cost="65" disabled>
+                        <button><img src="../static/resources/right.png" alt="Increment" onclick="seedIncrement('carrotSeedCount')"></button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="../static/resources/corn-seeds.png" alt="Corn Seeds">
+                    <div class="menu-item-input">
+                        <button><img src="../static/resources/left.png" alt="Decrement" onclick="seedDecrement('cornSeedCount')"></button>
+                        <input type="number" name="cornSeedCount" value="0" min="0" max="99" id="cornSeedCount" cost="90" disabled>
+                        <button><img src="../static/resources/right.png" alt="Increment" onclick="seedIncrement('cornSeedCount')"></button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="../static/resources/potato-seeds.png" alt="Potato Seeds">
+                    <div class="menu-item-input">
+                        <button><img src="../static/resources/left.png" alt="Decrement" onclick="seedDecrement('potatoSeedCount')"></button>
+                        <input type="number" name="potatoSeedCount" value="0" min="0" max="99" id="potatoSeedCount" cost="100" disabled>
+                        <button><img src="../static/resources/right.png" alt="Increment" onclick="seedIncrement('potatoSeedCount')"></button>
+                    </div>
+                </div>
+                <div class="market-menu-right-total">
+                    <p> Total: </p>
+                    <span id="marketMenuRightTotal"> 0 </span>
+                </div>
+                <button id="buySeedBtn"> BUY </button>
+            </div>
+        </div>
+        <form method="POST">
+            <button type="submit" name="rightPathLeft" id="rightPathLeftBtn"> Move Left </button>
+        </form>
+    </div>
+    
+    <div id="transitionScreen">     <!-- This is the div that gets manipulated by "transition()" to emulate a transition screen between stages. -->
+    </div>
+
+    <img src="../static/resources/market.png" alt="Market" id="market">                                     <!-- These are all the images used in this stage of the game. -->
+    <img src="../static/resources/marketSpritesheet.png" alt="Market Hover" id="marketHover">
+    <img src="../static/resources/inventory-background.png" alt="Inventory Background" id="inventoryBg">
+    <img src="../static/resources/coin.png" alt="Coin" id="coin">
+    <img src="../static/resources/turnip-seeds.png" alt="Turnip Seeds" id="turnipSeeds">
+    <img src="../static/resources/turnip.png" alt="Turnip Item" id="turnipItem">
+    <img src="../static/resources/carrot-seeds.png" alt="Carrot Seeds" id="carrotSeeds">
+    <img src="../static/resources/carrot.png" alt="Carrot Item" id="carrotItem">
+    <img src="../static/resources/corn-seeds.png" alt="Corn Seeds" id="cornSeeds">
+    <img src="../static/resources/corn.png" alt="Corn Item" id="cornItem">
+    <img src="../static/resources/lettuce-seeds.png" alt="Lettuce Seeds" id="lettuceSeeds">
+    <img src="../static/resources/lettuce.png" alt="Lettuce Item" id="lettuceItem">
+    <img src="../static/resources/potato-seeds.png" alt="Potato Seeds" id="potatoSeeds">
+    <img src="../static/resources/potato.png" alt="Potato Item" id="potatoItem">
+    
+
+    <script src="../static/js/pathRight.js" type="module"></script>               <!-- Including the script responsible for this stage's game logic, as well as the scripts responsible -->
+    <script src="../static/js/transition.js"></script>                            <!-- for the 'transition' effect and the increment/decrement buttons within the market.               -->
+    <script src="../static/js/marketButtons.js"></script>
+</body>
+{% endblock %}

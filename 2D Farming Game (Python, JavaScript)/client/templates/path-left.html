@@ -1,0 +1,63 @@
+{% extends "base.html" %} <!-- Jinja statement used to render this html page below the navbar defined in base.html -->
+{% block content %}
+<head>
+    <!-- Adding SocketIO and JQuery to be used in pathLeft.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body onload="transition()">  
+    <div class="path-left-canvas">
+        <h2 align="center"> Left Path </h2>
+        <canvas id="left-canvas"></canvas>
+        {% if user.model == "male" %}                                                        <!-- Jinja template statements used to display   -->
+            <img src="../static/resources/male-farmer.png" alt="Farmer" id="character">      <!-- the appropriate 'player model' in the game. -->
+        {% elif user.model == "female" %}
+            <img src="../static/resources/female-farmer.png" alt="Farmer" id="character">
+        {% else %}
+            <img src="../static/resources/male-farmer.png" alt="Farmer" id="character">
+        {% endif %}
+        <button id="harvestBtn"></button>           <!-- These are the buttons used to change states (Build Mode, Move Mode, Remove Mode) within the game. -->
+        <button id="buildBtn"></button>
+        <button id="removeBtn"></button>
+        <button id="moveBtn"></button>
+        <button id="inventoryBtn"></button>
+        <button id="saveBtn"></button>
+        <form method="POST">
+            <button type="submit" name="leftPathRight" id="leftPathRightBtn"> Move Right </button>
+        </form>
+    </div>
+
+    <div id="transitionScreen"> <!-- This is the div that gets manipulated by "transition()" to emulate a transition screen between stages. -->
+    </div>
+
+    <img src="../static/resources/plot.png" alt="Plot" id="plot">                                           <!-- These are all the images used in this stage of the game. -->
+    <img src="../static/resources/highlighted-plot.png" alt="Highlighted Plot" id="highlightedPlot">
+    <img src="../static/resources/red-highlighted-plot.png" alt="Red Highlighted Plot" id="redHighlightedPlot">
+    <img src="../static/resources/scythe.png" alt="Harvest Mode Cursor" id="harvestMode">
+    <img src="../static/resources/shovel2.png" alt="Remove Mode Cursor" id="removeMode">
+    <img src="../static/resources/shovel3.png" alt="Tilted Remove Mode Cursor" id="removeModeTilt">
+    <img src="../static/resources/hand2.png" alt="Move Mode Cursor" id="moveMode">
+    <img src="../static/resources/grabbed-plot.png" alt="Grabbed Plot" id="grabbedPlot">
+    <img src="../static/resources/red-grabbed-plot.png" alt="Red Grabbed Plot" id="redGrabbedPlot">
+    <img src="../static/resources/inventory-background.png" alt="Inventory Background" id="inventoryBg">
+    <img src="../static/resources/coin.png" alt="Coin" id="coin">
+    <img src="../static/resources/carrot-seeds.png" alt="Carrot Seeds" id="carrotSeeds">
+    <img src="../static/resources/carrot.png" alt="Carrot Item" id="carrotItem">
+    <img src="../static/resources/corn-seeds.png" alt="Corn Seeds" id="cornSeeds">
+    <img src="../static/resources/corn.png" alt="Corn Item" id="cornItem">
+    <img src="../static/resources/lettuce-seeds.png" alt="Lettuce Seeds" id="lettuceSeeds">
+    <img src="../static/resources/lettuce.png" alt="Lettuce Item" id="lettuceItem">
+    <img src="../static/resources/potato-seeds.png" alt="Potato Seeds" id="potatoSeeds">
+    <img src="../static/resources/potato.png" alt="Potato Item" id="potatoItem">
+    <img src="../static/resources/turnip-seeds.png" alt="Turnip Seeds" id="turnipSeeds">
+    <img src="../static/resources/turnip.png" alt="Turnip Item" id="turnipItem">
+    <img src="../static/resources/turnip-spritesheet.png" alt="Turnip Spritesheet" id="turnipSpritesheet">
+    <img src="../static/resources/carrot-spritesheet.png" alt="Carrot Spritesheet" id="carrotSpritesheet">
+    <img src="../static/resources/corn-spritesheet.png" alt="Corn Spritesheet" id="cornSpritesheet">
+    <img src="../static/resources/lettuce-spritesheet.png" alt="Lettuce Spritesheet" id="lettuceSpritesheet">
+    <img src="../static/resources/potato-spritesheet.png" alt="Potato Spritesheet" id="potatoSpritesheet">
+    
+    <script src="../static/js/pathLeft.js" type="module"></script>  <!-- Including the script responsible for this stage's game logic,  -->
+    <script src="../static/js/transition.js"></script>              <!-- as well as the script responsible for the 'transition' effect. -->
+</body>
+{% endblock %}

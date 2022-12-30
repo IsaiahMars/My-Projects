@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block title %} Map {% endblock%} <!-- Title block containing page title -->
+
+{% block content%} <!-- Content block containing header tag -->
+    <head>
+        {{ nearbyRestaurantsMap.js }}
+    </head>
+    <body>
+        <div class="map-container">
+            <h2> Restaurants Near You </h2>
+            {{ nearbyRestaurantsMap.html }}
+        </div>
+    </body>
+{% endblock %}
