@@ -99,7 +99,7 @@ def signUp():
 
             flash('Account created!', category="success")
             login_user(new_user, remember=False)
-            return redirect(url_for("views.questionnaire"))                                  # Flashing a message, logging in the user, redirecting to homepage upon successful account creation.
+            return redirect(url_for("views.questionnaire"))                                  # Flashing a message, logging in the user, redirecting to the questionnaire page upon successful account creation.
 
     return render_template("sign-up.html", user=current_user)
 
