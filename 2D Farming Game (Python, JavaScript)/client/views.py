@@ -6,7 +6,7 @@ from . import db, socketio
 import json
 
 views = Blueprint('views', __name__)               # Flask uses blueprints to facilitate modularity within projects, here I am creating the 'views' blueprint
-                                                   # to define all routes associated with the 'main' section of the website.
+                                                   # to define all routes associated with the main portion of the website.
 @views.route('/', methods=['GET', 'POST'])         # Defining the route for the home page, and passing methods 'GET' and 'POST' to allow requests to and from the backend.        
 def home():                                       
     if current_user.is_authenticated:              # Simple conditional that redirects a user to the login page based on whether or not they are authenticated using flask_login.                                                                              
@@ -57,7 +57,7 @@ def handle_my_custom_event(data):
     for exisPlot in existingUserPlots:
         db.session.delete(exisPlot)
     
-    for item in savedUserInfo["inventory"]:                                                     # Inserting the received player data into its respective tables.
+    for item in savedUserInfo["inventory"]:                                                     # Inserting the received player data into its respective table.
         tempItem = InventoryItems(user_id=current_user.id,
                                  item_name=item["item_name"], 
                                  item_image_id=item["item_image_id"], 

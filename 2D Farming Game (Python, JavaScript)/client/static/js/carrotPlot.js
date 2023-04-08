@@ -24,7 +24,7 @@ export default class CarrotPlot{
     update(){
         var now = Date.now();
         if(this.stage < 6){
-            if(this.timePlanted + (4000 * this.stage) < now){
+            if(this.timePlanted + (50000 * this.stage) < now){
                 this.frameX += 1;
                 this.stage += 1;
             }

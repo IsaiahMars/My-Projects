@@ -1,5 +1,4 @@
 
-
 /* ----------------------  */
 /*     CSS FOR NAVBAR      */
 
@@ -284,9 +283,9 @@
     font-size: 18px;
 }
 
-/* CSS FOR USER INFO FORM    */
-/* ------------------------- */
-/* CSS FOR PASSWORD MODAL    */
+/* CSS FOR USER INFO FORM  */
+/* ----------------------- */
+/* CSS FOR PASSWORD MODAL  */
 .account-settings-form .form-item .form-item-input #passwordModal {
     width: 170px;
     border: 1px solid black;
@@ -337,9 +336,9 @@
     font-style: Verdana;
     font-size: 18px;
 }
-/* CSS FOR PASSWORD MODAL */
-/* ------------------     */
-/* CSS FOR DELETE ACCOUNT MODAL    */
+/* CSS FOR PASSWORD MODAL       */
+/* ---------------------------  */
+/* CSS FOR DELETE ACCOUNT MODAL */
 .delete-account {
     margin: 1em 1em;
     width: 160px;
@@ -386,9 +385,9 @@
     font-size: 18px;
 }
 
-/* CSS FOR DELETE ACCOUNT MODAL    */
-/* ----------------------------    */
-/* CSS FOR HOME PAGE               */
+/* CSS FOR DELETE ACCOUNT MODAL */
+/* ---------------------------- */
+/* CSS FOR HOME PAGE            */
 
 .main-canvas{
     width: 1080px;
@@ -434,9 +433,9 @@
     outline: none;
 }
 
-/* CSS FOR HOME PAGE               */
-/* ----------------------------    */
-/* CSS FOR PATH LEFT PAGE          */
+/* CSS FOR HOME PAGE      */
+/* ---------------------  */
+/* CSS FOR PATH LEFT PAGE */
 
 .path-left-canvas{
     width: 1080px;
@@ -556,9 +555,9 @@
     display: none;
 }
 
-/* CSS FOR PATH LEFT PAGE          */
-/* ----------------------------    */
-/* CSS FOR PATH RIGHT PAGE         */
+/* CSS FOR PATH LEFT PAGE  */
+/* ----------------------- */
+/* CSS FOR PATH RIGHT PAGE */
 
 .path-right-canvas{
     width: 1080px;
@@ -769,4 +768,76 @@ input::-webkit-inner-spin-button {
 #market, #marketHover {
     display: none;
 }
-/* CSS FOR PATH RIGHT PAGE         */
+/* CSS FOR PATH RIGHT PAGE  */
+/* ------------------------ */
+/* CSS FOR INSTRUCTION PAGE */
+
+.instructions-header{
+    display: flex;
+    width: fit-content;
+    border-bottom: 2px solid black;
+    font-size: 30px;
+    margin: .5em auto;
+    font-style: Verdana;
+    font-weight: 700;
+}
+
+.instruction-container{
+    width: 60vw;
+    margin: 1em auto;
+    padding-bottom: 1em;
+    border: 2px solid black;
+    border-radius: 15px;
+    background: rgb(71, 124, 71);
+}
+
+.instruction-container .instruction-subheader{
+    margin: .5em 0;
+    margin-left: 6%;
+    font-style: Verdana;
+    color: white;
+    text-shadow: black 1px 2px 2px;
+}
+
+
+
+.instruction-container .instruction{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: .5em auto;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.instruction-container .instruction .instruction-img{
+    width: 120px;
+    height: 130px;
+    border: 1px solid black;
+    background: rgb(82, 71, 54);
+}
+
+.instruction-container .instruction img{
+    padding: .3em;
+    height: 130px;
+    width: 120px;
+    display: flex;
+    margin: auto;
+}
+
+.instruction-container .instruction .instruction-body {
+    background: rgb(104, 89, 66);
+    width: 100%;
+}
+
+.instruction-container .instruction .instruction-body p{
+    width: 90%;
+    text-align: left;
+    font-size: 18px;
+    font-style: Verdana;
+    margin-top: .5em;
+    margin-left: .5em;
+    color: white;
+    font-weight: 600;
+    text-shadow: black 1px 1px 1px;
+}

@@ -1,5 +1,77 @@
-{% extends "base.html" %} {% block title %} How to Play {% endblock%} <!-- Jinja statement used to render this html page below the navbar defined in base.html -->
+{% extends "base.html" %} <!-- Jinja statement used to render this html page below the navbar defined in base.html -->
 
 {% block content %}                                                           
-<h2 align="center"> I honestly didn't expect to get this far. </h2>
+<h2 class="instructions-header"> Game Instructions </h2>
+<div class="instruction-container">
+    <h2 class="instruction-subheader"> Farming: </h2>
+    <div class="instruction">
+        <div class="instruction-img">
+            <img src="../static/resources/hoe.png" alt="Hoe">
+        </div>
+        <div class="instruction-body">
+            <p> The hoe is used to create new plots for seeds to be planted in. You cannot place a plot over an existing plot, or outside of the intented farming area. </p>
+        </div>
+    </div>
+    <div class="instruction">
+        <div class="instruction-img">
+            <img src="../static/resources/shovel.png" alt="Shovel">
+        </div>
+        <div class="instruction-body">
+            <p> The shovel is used to remove existing plots. </p>
+            <p> WARNING: Any crop that is growing in a removed plot will be removed as well, and the seed will not be returned to you. </p>
+        </div>
+    </div>
+    <div class="instruction">
+        <div class="instruction-img">
+            <img src="../static/resources/scythe.png" alt="Scythe">
+        </div>
+        <div class="instruction-body">
+            <p> The scythe is used to harvest a mature crop. </p>
+        </div>
+    </div>
+    <div class="instruction">
+        <div class="instruction-img">
+            <img src="../static/resources/hand.png" alt="Hand">
+        </div>
+        <div class="instruction-body">
+            <p> The hand is used to pick up and replace existing plots. </p>
+            <p> WARNING: Any crop that is growing in a picked up plot will be removed, and the seed will not be returned to you. </p>
+        </div>
+    </div>
+    <div class="instruction">
+        <div class="instruction-img">
+            <img src="../static/resources/inventory.png" alt="Bag">
+        </div>
+        <div class="instruction-body">
+            <p> The bag is used to access your inventory. You can click on an inventory item to pick it up, the inventory will sort itself, and then you can click anywhere inside the inventory again to put the item back. </p>
+        </div>
+    </div>
+    <div class="instruction">
+        <div class="instruction-img">
+            <img src="../static/resources/save-icon.png" alt="Save">
+        </div>
+        <div class="instruction-body">
+            <p> The save icon is used to save your progress. Progress is automatically saved when you move from one stage to another, but not when you leave the home page. Make sure to save your progress before navigating to a different page or leaving the site. </p>
+        </div>
+    </div>
+</div>
+<div class="instruction-container">
+    <h2 class="instruction-subheader"> Market: </h2>
+    <div class="instruction">
+        <div class="instruction-img">
+            <img src="../static/resources/market.png" alt="Market">
+        </div>
+        <div class="instruction-body">
+            <p> The market is located on the right path. Here, you can buy seeds and sell crops. Simply click on the market to open the market menu. </p>
+        </div>
+    </div>
+    <div class="instruction">
+        <div class="instruction-img">
+            <img src="../static/resources/coin.png" alt="Coins">
+        </div>
+        <div class="instruction-body">
+            <p> Coins are gained by selling crops at the market. When crops are in your inventory, they will appear in the market for you to sell. </p>
+        </div>
+    </div>
+</div>
 {% endblock %}
